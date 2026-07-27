@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İran Prensesi Geyindirmə</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-wrapper">
+        <!-- Sol Tərəf: Şkaf (Wardrobe) -->
+        <div class="wardrobe">
+            <!-- Üst Rəf (Saçlar və Taclar) -->
+            <div class="shelf shelf-top">
+                <img src="images/blonde-group.png" data-id="open-blonde-hair" draggable="true" ondragstart="drag(event)" style="width: 100%; height: 100%; object-fit: contain;">
+                <div class="item" onclick="changeItem('hair-layer', 'images/hair2.png')">Saç 2</div>
+                <div class="item remove" onclick="changeItem('hair-layer', '')">X</div>
+            </div>
+
+            <!-- Şkafdakı rəfləri bu cür dəyiş (onclick yerinə draggable və ondragstart) -->
+            <div class="shelf shelf-middle">
+                <div class="item dress">
+                    <!-- Nümunə: Qırmızı don -->
+                    <img src="images/red-top.png" data-id="red-top" draggable="true" ondragstart="drag(event)" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                
+                <div class="item dress">
+                    <!-- Nümunə: Mavi don -->
+                    <img src="mavi_don_ikon.png" draggable="true" ondragstart="drag(event)" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+            </div>
+
+            <!-- Alt Rəf (Ayaqqabılar və Aksesuarlar) -->
+            <div class="shelf shelf-bottom">
+                    <img src="images/brown-heels.png" data-id="brown-heels" draggable="true" ondragstart="drag(event)" style="width: 100%; height: 100%; object-fit: contain;">
+                <!-- <div class="item remove" onclick="changeItem('shoes-layer', '')">X</div> -->
+            </div>
+        </div>
+
+        <!-- Sağ Tərəf: Səhnə və Maneken -->
+        <div class="scene" ondragover="allowDrop(event)" ondrop="drop(event)">
+            <!-- Arxa Fon Elementləri (Videodakı sütunlar və mənzərə üçün) -->
+            <div class="background"></div>
+
+            <!-- Sənin Manekenin -->
+            <img src="images/Mannequin (1).png" id="mannequin" alt="Maneken">
+
+            <!-- Geyim Qatları -->
+            <img src="" id="shoes-layer" class="clothing-layer" alt="">
+            <img src="" id="dress-layer" class="clothing-layer" alt="">
+            <img src="" id="hair-layer" class="clothing-layer" alt="">
+
+            <!-- Videodakı sağ kənar açılıb-bağlanan "Layers" paneli -->
+            <div class="layers-wrapper">
+                <!-- Açılan Panel -->
+                <div class="layers-panel" id="layersPanel">
+                    <p style="margin: 0; font-size: 12px; color: #fff;">Aktiv Qatlar</p>
+                    <!-- Gələcəkdə bura geyinilmiş paltarların ikonlarını əlavə edə bilərsən -->
+                </div>
+                
+                <!-- Kliklənən Düymə -->
+                <div class="layers-tab" onclick="toggleLayers()">
+                    <div class="tab-title">Layers</div>
+                    <div class="tab-icon"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

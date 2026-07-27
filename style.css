@@ -1,0 +1,209 @@
+/* Ümumi Sıfırlama */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Oyunun Əsas Çərçivəsi (Videodakı ölçülərə uyğun) */
+.game-wrapper {
+    width: 220vh;
+    height: 99.2vh;
+    display: flex;
+    border: 3px solid #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    background-color: #fff;
+    position: relative;
+}
+
+/* Şkaf (Sol tərəf) */
+.wardrobe {
+    width: 60%;
+    height: 100%;
+    background-color: #fcfcfc;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #ccc;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+/* Rəflər */
+.shelf {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+    border-bottom: 3px solid #e0cda7; /* Taxta rəf görünüşü */
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.shelf-top { height: 25%; }
+.shelf-middle { height: 50%; }
+.shelf-bottom { height: 25%; border-bottom: none; margin-bottom: 0; }
+
+/* Şkafdakı Əşya İkonları (Placeholder vizualı) */
+.item {
+    width: 60px;
+    height: 80px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.item.dress {
+    width: 80px;
+    height: 180px; /* Donlar daha uzun olur */
+}
+
+.item.remove {
+    width: 30px;
+    height: 30px;
+    background-color: #ffb3b3;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* Səhnə (Sağ tərəf) */
+.scene {
+    width: 40%;
+    height: 100%;
+    position: relative;
+    background-color: #87ceeb; /* Açıq səma rəngi fon */
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #87ceeb 60%, #e8d596 60%); /* Videodakı səma və qum effekti */
+    z-index: 0;
+}
+
+/* Maneken (Sənin faylın) */
+#mannequin {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 85%;
+    z-index: 1;
+}
+
+.clothing-layer {
+    position: absolute;
+    bottom: 56%;
+    left: 55.5%;
+    transform: translateX(-50%);
+    height: 14%;
+    
+    
+    /* height: 85%; <-- BUNU SİLİRİK */
+    max-height: 65%; /* Şəklin manekendən böyük olmasının qarşısını alır */
+    max-width: 100%; /* Şəklin ekrandan kənara çıxmasının qarşısını alır */
+    object-fit: contain; /* Şəklin deformasiya olmadan (əzilmədən) kiçilməsini təmin edir */
+    
+    pointer-events: none;
+}
+
+/* Z-index sıralaması */
+#shoes-layer { z-index: 2; }
+#dress-layer { z-index: 3; }
+#hair-layer { z-index: 4; }
+
+/* Açılıb-bağlanan Layers Paneli və Düyməsi */
+.layers-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    display: flex;
+    z-index: 10;
+    align-items: flex-start;
+}
+
+/* Sürüşərək açılan iç panel */
+.layers-panel {
+    background-color: #a41c40; /* Videodakı tünd qırmızı ton */
+    width: 0; /* Başlanğıcda gizlidir */
+    min-height: 80px;
+    overflow: hidden;
+    transition: width 0.3s ease, padding 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 5px 0 0 5px;
+}
+
+/* JavaScript ilə 'open' kəliməsi əlavə olunanda panel genişlənir */
+.layers-panel.open {
+    width: 130px;
+    padding: 10px;
+    border: 2px solid #5a0016;
+    border-right: none;
+    box-shadow: -3px 3px 5px rgba(0,0,0,0.3);
+}
+
+/* Kliklədiyimiz qırmızı tab düyməsi */
+.layers-tab {
+    background-color: #5a0016;
+    color: #fff;
+    width: 30px;
+    height: 80px;
+    border-radius: 5px 0 0 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: -2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.tab-title {
+    writing-mode: vertical-rl;
+    font-size: 12px;
+    margin-bottom: 5px;
+    user-select: none; /* Üzərinə klikləyəndə mətnin seçilməməsi üçün */
+}
+
+.tab-icon {
+    width: 12px;
+    height: 12px;
+    background-color: #ffcccc;
+    border-radius: 2px;
+}
+
+.tab-title {
+    writing-mode: vertical-rl;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.tab-icon {
+    width: 15px;
+    height: 15px;
+    background-color: #fcc;
+    border-radius: 2px;
+}
+
+/* Səhnəyə atılan geyimlər üçün punktual dizayn */
+.dropped-item {
+    position: absolute;
+    /* left: 52.39999%; */
+    transform: translateX(-50%); /* Həmişə mərkəzə hizalayır */
+    cursor: pointer;
+    object-fit: contain;
+}

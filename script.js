@@ -3,6 +3,7 @@
 const itemData = {
     "open-blonde-hair": { top: "7.82%", left: "180px", width: "200px", zIndex: 4 },
     "red-top": { top: "29.5%", left: "53.9%", width: "115.8px", zIndex: 3 },
+    "brown-top": { top: "29.5%", left: "53.9%", width: "115.8px", zIndex: 3 },
     "brown-heels": { top: "85%", right: "50%",  width: "200px", zIndex: 2 }
 };
 

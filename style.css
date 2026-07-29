@@ -10,8 +10,9 @@ body {
 
 /* Oyunun Əsas Çərçivəsi (Videodakı ölçülərə uyğun) */
 .game-wrapper {
-    width: 220vh;
+    width: 150vh;
     height: 99.2vh;
+    aspect-ratio: 16 / 9; /* Ekran kiçilsə də formasını (düzbucaqlığını) qoruyur */
     display: flex;
     border: 3px solid #fff;
     box-shadow: 0 0 15px rgba(0,0,0,0.3);

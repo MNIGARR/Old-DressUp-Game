@@ -1,5 +1,4 @@
 // HƏR BİR GEYİMİN DƏQİQ KOORDİNAT BAZASI
-// "data-id" adları buradakı adlarla eyni olmalıdır!
 const itemData = {
   "open-blonde-hair": {
     top: "7.82%",

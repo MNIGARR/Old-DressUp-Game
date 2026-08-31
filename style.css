@@ -46,12 +46,12 @@ body {
 
 .shelf-top { height: 25%; }
 .shelf-middle { height: 50%; }
-.shelf-bottom { height: 25%; border-bottom: none; margin-bottom: 0; }
+.shelf-bottom { height: 25%; margin-bottom: 0; }
 
 /* Şkafdakı Əşya İkonları (Placeholder vizualı) */
 .item {
     width: 60px;
-    height: 80px;
+    height: 20px;
     background-color: #eee;
     border: 1px solid #ccc;
     display: flex;
@@ -135,6 +135,7 @@ body {
     z-index: 10;
     align-items: flex-start;
 }
+
 
 /* Sürüşərək açılan iç panel */
 .layers-panel {

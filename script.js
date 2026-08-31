@@ -1,7 +1,7 @@
 // HƏR BİR GEYİMİN DƏQİQ KOORDİNAT BAZASI
 const itemData = {
-  "open-blonde-hair": { top: "8%", left: "53.36%", width: "36.4%", zIndex: 4, },
-  "red-top": { top: "29.5%", left: "53.9%", width: "115.8px", zIndex: 3 },
+  "open-blonde-hair": { top: "8%", left: "53.46%", width: "36.4%", zIndex: 4, },
+  "red-top": { top: "29.5%", left: "55.6%", width: "21.5%", zIndex: 3 },
   "brown-top": { top: "23.7%", left: "54.5%", width: "19.8%", zIndex: 3 },
   "brown-heels": { top: "85.2%", left: "49.65%", width: "40%", zIndex: 2 },
   "trous-2": { top: "42%", left: "51.37%", width: "37%", zIndex: 2 },
